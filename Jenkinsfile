@@ -11,11 +11,11 @@ pipeline {
             }
             steps {
                 
-              bat  'node --version'
-              bat  'npm --version'
-              bat  'npm ci'
-              bat   'npm run build'
-              bat   'ls -la'
+              sh node --version
+              sh  npm --version
+              sh  npm ci
+              sh   npm run build
+              sh   ls -la
             
             }
         }
