@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-
+     cleanWs()
      
         stage('Build') {
             agent {
@@ -21,7 +21,7 @@ pipeline {
                  node --version
                  npm --version
                  
-                 sudo npm ci
+               npm ci
                  npm run build
                  ls -la
                  
