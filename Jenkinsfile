@@ -7,6 +7,15 @@
     }
 
     stages {
+
+     stage('Install Dependencies') {
+            steps {
+                script {
+                    // Install npm dependencies
+                    sh 'npm install'
+                }
+            }
+        }
         stage('Build') {
             agent {
                 docker {
@@ -19,7 +28,7 @@
                  ls -la
                  node --version
                  npm --version
-                npm ci
+               # npm ci
                  npm run build
                  ls -la
              '''
