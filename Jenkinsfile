@@ -20,7 +20,7 @@ pipeline {
                  ls -la
                  node --version
                  npm --version
-                 chown -R 114:122 "/.npm"
+                 
                npm ci
                  npm run build
                  ls -la
