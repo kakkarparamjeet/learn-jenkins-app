@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-     npm clean
+     
      
         stage('Build') {
             agent {
