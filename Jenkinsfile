@@ -1,6 +1,10 @@
  
  pipeline {
     agent any
+    environment {
+        // Set the PATH to include the node_modules/.bin directory
+        PATH = "${env.WORKSPACE}/node_modules/.bin:${env.PATH}"
+    }
 
     stages {
         stage('Build') {
