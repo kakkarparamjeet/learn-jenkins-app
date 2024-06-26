@@ -8,14 +8,7 @@
 
     stages {
 
-     stage('Install Dependencies') {
-            steps {
-                script {
-                    // Install npm dependencies
-                    sh 'npm install'
-                }
-            }
-        }
+     
         stage('Build') {
             agent {
                 docker {
