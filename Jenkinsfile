@@ -9,9 +9,7 @@ pipeline {
      
      
         stage('Build') {
-            agent {
-                
-            }
+          
             steps {
               sh '''
                  ls -la
