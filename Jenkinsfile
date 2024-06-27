@@ -12,6 +12,7 @@
         stage('Build') {
             agent {
                 docker {
+                  args '-u root:root'
                     image 'node:18-alpine'
                     reuseNode true
                 }
