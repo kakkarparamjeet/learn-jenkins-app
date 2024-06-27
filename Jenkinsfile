@@ -4,9 +4,9 @@ pipeline {
     stages {
         
 
-        stage('Install Dependencies') {
+        stage('clean') {
             steps {
-                sh 'npm install'
+                sh 'npm run clean'
             }
         }
 
