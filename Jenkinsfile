@@ -4,11 +4,7 @@ pipeline {
     stages {
         
 
-        stage('clean') {
-            steps {
-                sh 'npm run clean'
-            }
-        }
+        
 
         stage('Build') {
             steps {
