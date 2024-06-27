@@ -42,6 +42,7 @@
             }
       steps {
       sh '''
+       # First check build directory exist and in that file index.html exist.
         test -f build/index.html
        npm test
        '''
