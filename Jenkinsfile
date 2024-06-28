@@ -53,7 +53,7 @@
  stage('E2E') {
       agent {
                 docker {
-                  
+                  args '-u root:root'
                     image 'mcr.microsoft.com/playwright:v1.45.0-jammy'
                     reuseNode true
                 }
