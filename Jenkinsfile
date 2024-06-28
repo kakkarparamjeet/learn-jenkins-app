@@ -8,10 +8,11 @@
 
     stages {
 
-     
+     /*
         stage('Build') {
             agent {
                 docker {
+                 
                   args '-u root:root'
                     image 'node:18-alpine'
                     reuseNode true
@@ -32,6 +33,7 @@
 
          
         }
+        */
      stage('Test') {
       agent {
                 docker {
@@ -51,7 +53,7 @@
  stage('E2E') {
       agent {
                 docker {
-                  args '-u root:root'
+                  #args '-u root:root'
                     image 'mcr.microsoft.com/playwright:v1.45.0-jammy'
                     reuseNode true
                 }
@@ -59,10 +61,16 @@
       steps {
       sh '''
       #startting the application
-      #first we install serve
-      npm install -g serve
+      #first we install serve and start globally
+      
+      #npm install -g serve
+      # but we need  to start locally
+      npm install serve
       # start a web server in build diretory
-      serve -s build
+      #serve -s build
+      # & will run the server in background
+      node_modules/.bin/serve -s build &
+      sleep 15
       npx playwright test
       
       #
