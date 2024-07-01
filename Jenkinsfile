@@ -8,7 +8,7 @@
 
     stages {
 
-     /*
+     
         stage('Build') {
             agent {
                 docker {
@@ -33,7 +33,7 @@
 
          
         }
-        */
+        
 
      stage('Tests') {
       parallel {
