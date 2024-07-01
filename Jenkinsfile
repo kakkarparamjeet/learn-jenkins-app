@@ -52,6 +52,14 @@
              npm test
              '''
             }
+                           post {
+                 always {
+                  junit 'jest-results/junit.xml'
+                  
+                  
+                  
+                 }
+  }
            }
        stage('E2E') {
             agent {
@@ -68,6 +76,7 @@
             # first we install serve and start globally
             
             # npm install -g serve
+            
             # but we need  to start locally
             npm install serve
             # start a web server in build diretory
@@ -84,16 +93,17 @@
            
              
             }
+                                                      post {
+                                  always {
+                                   junit 'jest-results/junit.xml'
+                                   
+                                   publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+                                   
+                                  }
+                                 }
            }
            
      
     }
-  post {
-   always {
-    junit 'jest-results/junit.xml'
-    
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-    
-   }
-  }
+  
   }
