@@ -2,6 +2,9 @@
  pipeline {
     agent any
     environment {
+     NETLIFY_SITE_ID = '9be7f22e-2eb7-4874-9664-0d6ba9ea5800'
+    }
+    environment {
         // Set the PATH to include the node_modules/.bin directory
         PATH = "${env.WORKSPACE}/node_modules/.bin:${env.PATH}"
     }
@@ -112,6 +115,7 @@ agent {
                 sh '''
                     npm install netlify-cli
                     node_modules/.bin/netlify --version
+                    echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
                 '''
             }
   }
