@@ -1,4 +1,4 @@
-In pipleine  we define a stage like group stage which containe multiple stage
+
 
  
  pipeline {
