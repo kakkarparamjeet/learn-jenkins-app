@@ -64,7 +64,7 @@
   }
            }
       
-       stage('E2E') {
+       stage('local E2E') {
             agent {
                       docker {
                         args '-u root:root'
@@ -122,7 +122,7 @@ agent {
             }
   }
 
-stage('E2E') {
+stage('prod E2E') {
             agent {
                       docker {
                         args '-u root:root'
