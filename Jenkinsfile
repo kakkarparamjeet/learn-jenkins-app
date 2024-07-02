@@ -132,6 +132,9 @@ agent {
                           reuseNode true
                       }
                   }
+    environment {
+      CI_ENVIRONMENT_URL = 'https://6683b2b8c2bf4904c44c9a91--lucent-mandazi-2221ef.netlify.app'
+    }
             steps {
             sh '''
             
