@@ -35,6 +35,7 @@ pipeline {
                 stage('Unit tests') {
                     agent {
                         docker {
+                        
                             args '-u root:root'
                             image 'node:18-alpine'
                             reuseNode true
@@ -57,6 +58,7 @@ pipeline {
                 stage('E2E') {
                     agent {
                         docker {
+                            args '-u root:root'
                             image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
                             reuseNode true
                         }
@@ -102,6 +104,7 @@ pipeline {
         stage('Prod E2E') {
             agent {
                 docker {
+                    args '-u root:root'
                     image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
                     reuseNode true
                 }
