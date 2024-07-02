@@ -117,6 +117,8 @@ agent {
                     node_modules/.bin/netlify --version
                     echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify status
+                    # we need to mention which folder to deploy and deploy to production
+                    node_modules/.bin/netlify deploy --dir-build --prod
                 '''
             }
   }
