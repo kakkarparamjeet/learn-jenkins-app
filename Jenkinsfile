@@ -101,6 +101,13 @@ pipeline {
                 '''
             }
         }
+        stage('approval') {
+            
+           
+            steps {
+                input message: 'configrm', ok: 'Yes Please go ahead with'
+            }
+        }
         stage('Deploy prod') {
             agent {
                 docker {
