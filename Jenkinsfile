@@ -131,6 +131,10 @@ stage('prod E2E') {
                           reuseNode true
                       }
                   }
+ environment {
+
+     CI_ENVIRONMENT_URL = "https://lucent-mandazi-2221ef.netlify.app"
+    }
             steps {
             sh '''
             
