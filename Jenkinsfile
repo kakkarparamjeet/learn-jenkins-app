@@ -66,14 +66,14 @@ pipeline {
                     agent {
                         docker {
                             args '-u root:root'
-                            image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                            image 'my-playwrigh'
                             reuseNode true
                         }
                     }
 
                     steps {
                         sh '''
-                           npm install serve
+                        
 
                             node_modules/.bin/serve -s build &
                             sleep 10
