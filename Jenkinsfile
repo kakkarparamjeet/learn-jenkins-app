@@ -110,7 +110,9 @@ pipeline {
             
            
             steps {
-                # with time limit 1 minute if not replied then abort pipeline
+                /*
+                with time limit 1 minute if not replied then abort pipeline
+                */
                 timeout(1) {
 input message: 'configrm', ok: 'Yes Please go ahead with'
                           }
