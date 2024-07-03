@@ -66,7 +66,7 @@ pipeline {
                     agent {
                         docker {
                             args '-u root:root'
-                            image 'my-playwright'
+                            image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
                             reuseNode true
                         }
                     }
