@@ -121,7 +121,9 @@ pipeline {
             }
 
             environment {
+                /*
                 # we don t know the url till now
+                */
                 CI_ENVIRONMENT_URL = "${env.STAGING_URL}"
             }
 
