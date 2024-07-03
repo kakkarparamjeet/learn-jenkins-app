@@ -109,7 +109,8 @@ pipeline {
                 }
             }
         }
-       # we will add Staging test
+       /* we will add Staging test
+       */
         stage('Staging E2E') {
             agent {
                 docker {
