@@ -66,7 +66,7 @@ pipeline {
                     agent {
                         docker {
                             args '-u root:root'
-                            image 'my-playwrigh'
+                            image 'my-playwright'
                             reuseNode true
                         }
                     }
