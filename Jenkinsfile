@@ -92,12 +92,15 @@ pipeline {
             }
             steps {
                 sh '''
+                    #   installing node-jq also
                     npm install netlify-cli node-jq
                     node_modules/.bin/netlify --version
                     echo "Deploying to staging. Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify status
-                    #  REmoveing --prod means it create review branch
+                    #  Removeing --prod means it create review branch
+                    #  redirecting the output to json file
                     node_modules/.bin/netlify deploy --dir=build --json > deploy-output.json
+                    #  using jq search the text in file deploy-output.json
                     node_modules/.bin/node-jq -r '.deploy_url' deploy-output.json
                     
                 '''
@@ -107,7 +110,11 @@ pipeline {
             
            
             steps {
-                input message: 'configrm', ok: 'Yes Please go ahead with'
+                # with time limit 1 minute if not replied then abort pipeline
+                timeout(1) {
+input message: 'configrm', ok: 'Yes Please go ahead with'
+                          }
+                
             }
         }
         stage('Deploy prod') {
